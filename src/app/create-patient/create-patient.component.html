@@ -1,0 +1,50 @@
+<form (ngSubmit) = "onSubmit()" name="myForm" #myForm="ngForm">
+    <h3>Create New Patient</h3>
+    <div style="background:orange;height:3px;width:150px;margin-bottom:10px; border-radius:20px"></div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Full Name</label>
+      <input type="text" class="form-control" id="full_name" [(ngModel)] = "patient.full_name" name="full_name">
+      <small id="emailHelp" class="form-text text-muted">Enter full name of patient as describe in government id pruf.</small>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-2">
+        <label for="ccmonth">Age</label>
+        <input type="number" class="form-control" id="age"  [(ngModel)] = "patient.age" name="age">
+       
+        </div>
+       
+        <div class="col-sm-5">
+        <div class="form-group">
+        <label for="cvv">Date Of Visit</label>
+        <input class="form-control" id="date_of_visit" type="date" placeholder="123" [(ngModel)] = "patient.date_of_visit" name="date_of_visit"> 
+        </div>
+        </div>
+
+        <div class="form-group col-sm-5">
+          <label for="ccmonth">Visited Doctor</label>
+          <select class="form-control" id="visited_doctor"  name="visited_doctor" [(ngModel)] = "patient.visited_doctor" (change)="onChange($event.target)">
+           
+            <option *ngFor="let doc of DoctorList;let i = index" [value]="i" [value]="doc.id" >
+              {{"Dr.  "+doc.full_name}} 
+            </option>
+          </select>
+
+          
+          <small id="emailHelp" class="form-text text-muted">choose recently visited doctor from list</small>
+          </div>
+
+          
+      </div>
+
+      <div class="form-group">
+        <label for="prescriptionUrl">Prescription URL</label>
+        <input type="text" class="form-control" id="prescriptionUrl" [(ngModel)] = "patient.prescriptionUrl" name="prescriptionUrl">
+        <small id="emailHelp" class="form-text text-muted">Enter the url of the patient prescriptions of previous treatments if available.</small>
+      </div>
+
+
+
+    <button type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-leaf"></span>&nbsp;&nbsp;Create New Patient</button>&nbsp;&nbsp;&nbsp;
+    
+  </form>

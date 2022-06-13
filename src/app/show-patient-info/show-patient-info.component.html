@@ -1,0 +1,47 @@
+<form class="form-inline" action="/action_page.php">
+    <div class="form-group">
+      &nbsp;&nbsp;&nbsp;
+      
+      <input type="number" class="form-control" name="patientID" id="exampleInputEmail1" [(ngModel)]="patientID" aria-describedby="emailHelp" placeholder="Enter patient id">
+    </div>
+    
+    &nbsp;
+    <button type="submit" class="btn btn-warning" (click)="getPatientInfo()" >Get Patient Information&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>
+  </form>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="emailHelp" class="form-text text-muted">Enter patient id to get information.</small>
+  
+  
+  <div class="container" *ngIf="isShown">
+    <br><br>    
+    <table class="table table-bordered" >
+      <tbody>
+        <tr>
+          <td style="font-weight:bold;width:50%;">Patient Name</td>
+          <td>{{patient.full_name}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Age</td>
+          <td>{{patient.age}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Visited Doctor Name</td>
+          <td>Dr. {{doctor.full_name}}</td>
+        </tr>
+
+  
+        <tr>
+          <td style="font-weight:bold;">Date Of Visit</td>
+          <td>{{patient.date_of_visit}}</td>
+        </tr>
+
+        <tr>
+            <td style="font-weight:bold;">Prescription</td>
+            <td><button (click)="openPrescription()"  class="btn btn-sm btn-success">View Prescription&nbsp;&nbsp;<span class="glyphicon glyphicon-file"></span></button></td>
+          </tr>
+  
+  
+  
+      </tbody>
+    </table>
+  </div>
+

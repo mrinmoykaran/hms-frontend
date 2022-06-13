@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form (ngSubmit) = "onSubmit()" name="myForm" #myForm="ngForm">
+  <h3 style="color: #0a9270;">Appoint New Doctor</h3>
+  <div style="background:#29e2b4;height:3px;width:150px;margin-bottom:10px; border-radius:20px"></div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Doctor's Full Name</label>
+    <!-- [(ngModel)] = "doctor.full_name" -->
+    <input type="text" class="form-control" name="full_name" [(ngModel)] = "doctor.full_name" required>
+    <small id="emailHelp" class="form-text text-muted">Enter full name of patient as describe in government id
+      pruf.</small>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="ccmonth">Gender</label>
+      <select class="form-control" id="ccmonth" [(ngModel)] = "doctor.gender" name="gender">
+        <option>---Select---</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <small id="emailHelp" class="form-text text-muted">choose recently visited doctor from list</small>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="cvv">Age</label>
+        <input class="form-control" id="cvv" type="number" placeholder="" [(ngModel)] = "doctor.age" name="age">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="form-group col-sm-12">
+     
+      <!-- <div *ngFor="let spec of specializationList">
+          <span><input type="checkbox" name="{{spec.area}}" id="{{spec.id}}" (change)="onSpecChange($event,spec)" [(ngModel)]="spec.isSelected">&nbsp;&nbsp;
+            <label class="form-check-label" for="{{spec.id}}">
+              {{spec.area}}
+          </label></span> -->
+
+          
+      <!-- </div> -->
+     <div class="form-group">
+      <label for="cvv">Specializations</label>
+      <input class="form-control" id="cvv" type="text" placeholder="" [(ngModel)] = "doctor.specialization" name="specialization" value="{{specializationString}}">
+    
+     </div>
+    </div>
+
+    
+  </div>
+
+
+  <button type="submit" class="btn btn-primary"><i class="fa fa-user-md" style="font-size:20px;"></i>&nbsp;&nbsp;Add
+    Doctor</button>&nbsp;&nbsp;&nbsp;
+  
+</form>
+

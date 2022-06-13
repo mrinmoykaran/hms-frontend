@@ -1,0 +1,60 @@
+<form class="form-inline" action="/action_page.php">
+  <div class="form-group">
+    &nbsp;&nbsp;&nbsp;
+    
+        <select class="form-control" id="ccmonth" name="Doctor" (change)="changeDoctor($event)" >
+            <option value="-1">---Select Doctor---</option>
+            <option *ngFor="let doc of DoctorList" [value]="doc.id">
+              {{"Dr.  "+doc.full_name}}
+            </option>
+        </select>
+        
+  </div>
+  
+  &nbsp;
+  <button type="submit" class="btn btn-info" (click)="getDoctorInfo()">Get Information&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>
+</form>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="emailHelp" class="form-text text-muted">Choose doctor name from above dropdown to get information.</small>
+
+
+<div class="container" *ngIf="isShown">
+  <h2><img src='{{ "assets/images/" + doctor.gender + ".png" }}' width="50px" height="50px" style="margin-top:-10px;"> Dr. {{doctor.full_name}}</h2>
+  <p>Showing doctor Information that provided before.</p>            
+  <table class="table table-bordered" >
+    <tbody>
+      <tr>
+        <td style="font-weight:bold;width:30%;">Full Name</td>
+        <td>{{doctor.full_name}}</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Doctor's ID</td>
+        <td>{{doctor.id}}</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">Gender</td>
+        <td>{{doctor.gender}}</td>
+      </tr>
+
+      <tr>
+        <td style="font-weight:bold;">Age</td>
+        <td>{{doctor.age}}</td>
+      </tr>
+
+      <tr>
+        <td style="font-weight:bold;">Specializations areas</td>
+        <td >
+          {{doctor.specialization}}
+          
+        </td>
+      </tr>
+
+      <tr>
+        <td style="font-weight:bold;">Nubmer of Patient Attended</td>
+        <td>{{patientAttended}}</td>
+      </tr>
+
+
+
+    </tbody>
+  </table>
+</div>
